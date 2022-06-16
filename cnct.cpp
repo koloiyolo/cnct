@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstring>
 using namespace std;
 
 struct cdata
@@ -27,8 +28,15 @@ class Functions
         }
     }
     void connect(int i){
-        string command= "ssh ";
-        if(connections[i].key=="")
+        string command ="ssh ";
+        string key="-i /.keys"+connections[i].key+" ";
+        string login = connections[i].user+'@'+connections[i].ip;
+        if(connections[i].key==""){
+            command +=login;
+        }else{
+            
+            command = command+key+login;
+        }
         system(command.c_str());
     }
 };
