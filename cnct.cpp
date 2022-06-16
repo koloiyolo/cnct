@@ -22,12 +22,13 @@ void menu(){
         default:
         break;
         case 1:
-        f.showConnections();
-        cout<<"Which server you want to connect to?"<<endl;
-        cout<<"Please enter number: ";
-        cin>>tmp;
-        f.connect(tmp);
+            f.showConnections();
+            cout<<"Which server you want to connect to?"<<endl;
+            cout<<"Please enter number: ";
+            cin>>tmp;
+            f.connect(tmp);
         break;
+
     }
 }
 
