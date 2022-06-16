@@ -1,10 +1,14 @@
 #include <fstream>
 #include <stdio.h>
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 class Functions
 {
+     //string 1 is IP, string 2 is key file
+    vector<pair<string, string>> connections; 
     public:
     void showConnections(){
     }
