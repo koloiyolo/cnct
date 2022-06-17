@@ -54,8 +54,12 @@ class Functions
 
     void keyList(){
         string path = ".keys";
+        string output;
+        int i = 0;
         for (const auto & entry : fs::directory_iterator(path)){
-        std::cout << entry.path() << std::endl;
+        output = entry.path();
+        output.replace(0,6, "");
+        cout<<++i<<". "<<output<<endl;
         }
     }
     
@@ -88,6 +92,11 @@ class Functions
                 getline(cin, tmp2);
                 command = command+tmp+" .keys/"+tmp2;
                 system(command.c_str());
+                for(auto &c:connections){
+                    if(c.key.compare(tmp)){
+                        c.key=tmp2;
+                    }
+                }
             break;
             case 3:
             break;
