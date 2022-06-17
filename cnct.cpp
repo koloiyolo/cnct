@@ -15,12 +15,19 @@ class Functions
 {
      
     vector<cdata> connections; 
-
+    public:
     void des(){
         fstream data;
+        string name, ip, user, key;
         data.open("data.txt");
+        if(data.is_open()){
+            while(data>>name>>ip>>user>>key){
+                connections.push_back({name, ip, user, key});
+            }
+        }else{
+            cout<<"Data file doesn't exist"<<endl;
+        }
     }
-    public:
     void showConnections(){
         int i = 0;
         for(auto c:connections){
@@ -43,6 +50,7 @@ class Functions
 
 void menu(){
     Functions f;
+    f.des();
     int choice;
     int tmp;
     cout<<"1. Connect to a server\n2. Connection list\n3. Key list\n4. Add key to keys folder\n5. Add connection\n";
