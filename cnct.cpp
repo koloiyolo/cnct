@@ -31,7 +31,7 @@ class Functions
     void showConnections(){
         int i = 0;
         for(auto c:connections){
-            cout<<++i<<". "<<c.name<<endl;
+            cout<<++i<<". "<<c.name<<" "<<c.ip<<endl;
         }
     }
     void connect(int i){
@@ -45,6 +45,10 @@ class Functions
             command = command+key+login;
         }
         system(command.c_str());
+    }
+    void keyList(){
+        system("cd .keys");
+        system("ls -l");
     }
 };
 
@@ -66,6 +70,11 @@ void menu(){
             cin>>tmp;
             f.connect(tmp-1);
         break;
+        case 2:
+            cout<<"List: "<<endl;
+            f.showConnections();
+        break;
+
 
     }
 }
