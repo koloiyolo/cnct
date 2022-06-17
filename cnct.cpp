@@ -53,15 +53,51 @@ class Functions
     }
 
     void keyList(){
-        //system("cd .keys");
-        //system("ls -l");
         string path = ".keys";
-        for (const auto & entry : fs::directory_iterator(path))
+        for (const auto & entry : fs::directory_iterator(path)){
         std::cout << entry.path() << std::endl;
+        }
     }
-
-
-    void keysToDir(){}
+    
+    void keysManagement(){
+        int choice;
+        string tmp, tmp2, command;
+        cout<<"1. Set permissions\n2. Rename\n Your choice: "<<endl;
+        cin>>choice;
+        switch (choice)
+        {
+            case 0:
+            break;
+            case 1:
+                keyList();
+                command = "sudo chmod 600 ";
+                cout<<"Please enter full key name: ";
+                cin.ignore();
+                getline(cin, tmp);
+                command += tmp;
+                cout<<command<<endl;
+                //system(command.c_str()); sudo todo
+            break;
+            case 2:
+                keyList();
+                command = "mv .keys/";
+                cin.ignore();
+                cout<<"Please enter key name: ";
+                getline(cin, tmp);
+                cout<<"Please eneter new key name: ";
+                getline(cin, tmp2);
+                command = command+tmp+" .keys/"+tmp2;
+                system(command.c_str());
+            break;
+            case 3:
+            break;
+            default:
+            cout<<"Wrong option, try again."<<endl;
+            keysManagement();
+            break;
+        }
+        
+    }
 };
 
 void menu(){
@@ -69,7 +105,7 @@ void menu(){
     f.des();
     int choice;
     int tmp;
-    cout<<"1. Connect to a server\n2. Connection list\n3. Key list\n4. Add key to keys directory\n5. Add connection\n";
+    cout<<"1. Connect to a server\n2. Connection list\n3. Key list\n4. Key management\n5. Add connection\n";
     cout<<"Choice: ";
     cin>>choice;
     switch(choice){
@@ -90,7 +126,7 @@ void menu(){
             f.keyList();
         break;
         case 4:
-            system("mkdir a");
+            f.keysManagement();
         break;
 
     }
