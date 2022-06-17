@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <cstring>
+#include <filesystem>
 using namespace std;
 
 struct cdata
@@ -74,7 +75,9 @@ void menu(){
             cout<<"List: "<<endl;
             f.showConnections();
         break;
-
+        case 3:
+            f.keyList();
+        break;
 
     }
 }
