@@ -1,4 +1,4 @@
-SSH Connection Manager(WIP)
+SSH Connection Manager (WIP)
 
 Easy tool to manage your secure shell connections and everything related to them.
 
