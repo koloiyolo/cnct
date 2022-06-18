@@ -49,7 +49,7 @@ class Functions
     
     void connect(int i){
         string command ="ssh ";
-        string key="-i /.keys"+connections[i].key+" ";
+        string key="-i /.keys/"+connections[i].key+" ";
         string login = connections[i].user+'@'+connections[i].ip;
         if(connections[i].key==""){
             command +=login;
