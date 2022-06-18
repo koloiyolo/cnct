@@ -45,6 +45,7 @@ class Functions
         for(auto c:connections){
             cout<<++i<<". "<<c.name<<" "<<c.ip<<endl;
         }
+        cout<<"\n";
     }
     
     void connect(int i){
@@ -69,6 +70,7 @@ class Functions
         output.replace(0,6, "");
         cout<<++i<<". "<<output<<endl;
         }
+        cout<<"\n";
     }
     
     void keysManagement(){
@@ -113,6 +115,7 @@ class Functions
             keysManagement();
             break;
         }
+        cout<<"\n";
         
     }
 
@@ -128,9 +131,13 @@ class Functions
         getline(cin, key); 
         cout<<"How would you like to name it?: ";
         getline(cin, name);
-        connections.push_back({name, ip, user, key});
-        cout<<"Connection created succesfully\n"; 
-        
+        if((user!="")&&(ip!="")){
+            connections.push_back({name, ip, user, key});
+            cout<<"Connection created succesfully\n"; 
+        }else{
+            cout<<"Wrong data"<<endl;
+        }
+        cout<<"\n";
     }
 };
 
@@ -139,11 +146,16 @@ void menu(){
     f.des();
     int choice;
     int tmp;
-    cout<<"1. Connect to a server\n2. Connection list\n3. Key list\n4. Key management\n5. Add connection\n";
+    cout<<"1. Connect to a server\n2. Connection list\n3. Key list\n4. Key management\n5. Add connection\n0. Exit\n";
     cout<<"Choice: ";
     cin>>choice;
+    cout<<"\n";
     switch(choice){
         default:
+            cout<<"Wrong choice, please try again"<<endl;
+            menu();
+        break;
+        case 0:
         break;
         case 1:
             f.showConnections();
@@ -155,15 +167,19 @@ void menu(){
         case 2:
             cout<<"List: "<<endl;
             f.showConnections();
+            menu();
         break;
         case 3:
             f.keyList();
+            menu();
         break;
         case 4:
             f.keysManagement();
+            menu();
         break;
         case 5:
             f.addConnect();
+            menu();
         break;
     }
     f.ser();
