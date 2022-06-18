@@ -19,7 +19,8 @@ class Functions
     vector<cdata> connections; 
     public:
     void ser(){
-        ofstream data("data.txt");
+        ofstream ("data.txt");
+        fstream data;
         data.open("data.txt");
         for(auto c:connections){
             data<<c.name<<" "<<c.ip<<" "<<c.user<<" "<<c.key<<endl;
