@@ -141,9 +141,7 @@ class Functions
     }
 };
 
-void menu(){
-    Functions f;
-    f.des();
+void menu(Functions &f){
     int choice;
     int tmp;
     cout<<"1. Connect to a server\n2. Connection list\n3. Key list\n4. Key management\n5. Connection management\n0. Exit\n";
@@ -153,7 +151,7 @@ void menu(){
     switch(choice){
         default:
             cout<<"Wrong choice, please try again"<<endl;
-            menu();
+            menu(f);
         break;
         case 0:
         break;
@@ -167,26 +165,28 @@ void menu(){
         case 2:
             cout<<"List: "<<endl;
             f.showConnections();
-            menu();
+            menu(f);
         break;
         case 3:
             f.keyList();
-            menu();
+            menu(f);
         break;
         case 4:
             f.keysManagement();
-            menu();
+            menu(f);
         break;
         case 5:
             f.connectManagement();
-            menu();
+            menu(f);
         break;
     }
-    f.ser();
 }
 
 
 int main(){
-    menu();
+    Functions f;
+    f.des();
+    menu(f);
+    f.ser();
     return 0;
 }
