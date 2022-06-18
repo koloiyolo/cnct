@@ -109,6 +109,7 @@ class Functions
     }
 
     void addConnect(){
+        cin.ignore();
         string user, ip, key, name;
         cout<<"What is your user name?: ";
         getline(cin, user); 
