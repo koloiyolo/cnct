@@ -18,7 +18,14 @@ class Functions
      
     vector<cdata> connections; 
     public:
-    
+    void ser(){
+        ofstream data("data.txt");
+        data.open("data.txt");
+        for(auto c:connections){
+            data<<c.name<<" "<<c.ip<<" "<<c.user<<" "<<c.key<<endl;
+        }
+        data.close();
+    }
     void des(){
         fstream data;
         string name, ip, user, key;
@@ -157,8 +164,8 @@ void menu(){
         case 5:
             f.addConnect();
         break;
-
     }
+    f.ser();
 }
 
 
