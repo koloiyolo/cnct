@@ -1,0 +1,17 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                          ToDo list
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- create install.sh
+
+- change data file from txt to binary
+
+- add remove function
+
+- fix key rename function
+
+- add note to saved connections without a key
+
+- implement searching by name functionality
+
+- create config file
