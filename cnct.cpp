@@ -107,6 +107,22 @@ class Functions
         }
         
     }
+
+    void addConnect(){
+        string user, ip, key, name;
+        cout<<"What is your user name?: ";
+        getline(cin, user); 
+        cout<<"What is IP address of this server?: ";
+        getline(cin, ip);
+        keyList(); 
+        cout<<"What is the name of the private key?: ";
+        getline(cin, key); 
+        cout<<"How would you like to name it?: ";
+        getline(cin, name);
+        connections.push_back({name, ip, user, key});
+        cout<<"Connection created succesfully\n"; 
+        
+    }
 };
 
 void menu(){
@@ -136,6 +152,9 @@ void menu(){
         break;
         case 4:
             f.keysManagement();
+        break;
+        case 5:
+            f.addConnect();
         break;
 
     }
