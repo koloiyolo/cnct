@@ -119,7 +119,7 @@ class Functions
         
     }
 
-    void addConnect(){
+    void connectManagement(){
         cin.ignore();
         string user, ip, key, name;
         cout<<"What is your user name?: ";
@@ -146,7 +146,7 @@ void menu(){
     f.des();
     int choice;
     int tmp;
-    cout<<"1. Connect to a server\n2. Connection list\n3. Key list\n4. Key management\n5. Add connection\n0. Exit\n";
+    cout<<"1. Connect to a server\n2. Connection list\n3. Key list\n4. Key management\n5. Connection management\n0. Exit\n";
     cout<<"Choice: ";
     cin>>choice;
     cout<<"\n";
@@ -178,7 +178,7 @@ void menu(){
             menu();
         break;
         case 5:
-            f.addConnect();
+            f.connectManagement();
             menu();
         break;
     }
